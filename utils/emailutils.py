@@ -8,7 +8,7 @@ import smtplib
 from email.mime.text import MIMEText
 import json
 from reliablestorage import localstorage
-from testutils.attachmentvalidations import validatefilename
+from utils.attachmentvalidations import validatefilename
 
 
 #most of the functions expects a email client connected

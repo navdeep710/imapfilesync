@@ -3,7 +3,7 @@ def convertxlsxtocsv(filename):
     pass
 
 import xlrd
-import csv
+import unicodecsv as csv
 
 def replacefilenameext(filename,sheetname,origext=".xlsx",newext=".csv"):
     filename = filename.replace(origext,"")
@@ -12,10 +12,10 @@ def replacefilenameext(filename,sheetname,origext=".xlsx",newext=".csv"):
     return filename
 
 def encodeifstring(value):
-    if(isinstance(value,str)):
-        return value.encode('ascii', 'ignore').decode('ascii')
+    if isinstance(value, str):
+        return value.encode('utf-8')
     else:
-        return value
+        return str(value)
 
 def csv_from_excel(filename):
     print("converting {0} filename to csv".format(filename))
@@ -24,12 +24,14 @@ def csv_from_excel(filename):
     newfilenames = []
     for sheet in msheets:
         sh = wb.sheet_by_name(sheet)
-        if(sh.nrows > 0 ):
+        if sh.nrows > 0:
             sheetname = replacefilenameext(filename,sheet)
-            new_csv = open(sheetname, 'w')
-            wr = csv.writer(new_csv, quoting=csv.QUOTE_MINIMAL)
+            new_csv = open(sheetname, 'wb')
+            wr = csv.writer(new_csv)
             for rownum in range(sh.nrows):
-                wr.writerow([encodeifstring(s) for s in sh.row_values(rownum)])
+                temp = [s for s in sh.row_values(rownum)]
+                wr.writerow(temp)
             newfilenames.append(sheetname)
             new_csv.close()
     return newfilenames
+

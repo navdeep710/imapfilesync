@@ -62,7 +62,7 @@ def copytonodes(nodes,localfile,remotebasepath):
         #this is where delete files if it is present
         print("deleting all previous copies")
         for node,ispresent in zip(nodes,is_presents):
-            if(ispresent):
+            if ispresent:
                 removefile(node,localfile)
     return copy_successful
     #else we are good
