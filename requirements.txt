@@ -12,7 +12,7 @@ cryptography==2.3.1
 daemon==1.2
 docopt==0.6.2
 docutils==0.14
-httplib2==0.11.3
+httplib2==0.19.0
 idna==2.7
 jmespath==0.9.3
 oauth2==1.9.0.post1
