@@ -1,5 +1,5 @@
 xlrd==1.1.0
-paramiko==2.4.1
+paramiko==2.10.1
 scp==0.11.0
 asn1crypto==0.24.0
 bcrypt==3.1.4
@@ -16,7 +16,7 @@ httplib2==0.11.3
 idna==2.7
 jmespath==0.9.3
 oauth2==1.9.0.post1
-paramiko==2.4.1
+paramiko==2.10.1
 persist-queue==0.4.0
 pipreqs==0.4.9
 pyasn1==0.4.4
